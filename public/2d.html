@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oficina de Agentes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <main id="stage">
+    <canvas id="cv"></canvas>
+    <div id="overlay"></div>
+
+    <div id="camBar">
+      <button data-view="all" title="Ver toda la oficina (0)">Todo</button>
+      <button data-view="agency" title="Ala Agencia (1)">Agencia</button>
+      <button data-view="askitar" title="Ala Askitar (2)">Askitar</button>
+      <span class="sep"></span>
+      <button id="btnFollow" title="Seguir al personaje seleccionado">Seguir</button>
+      <button id="btnAuto" title="La cámara va sola a donde hay acción">Auto</button>
+      <button id="btnNight" title="Luz según la hora real">Día y noche</button>
+    </div>
+    <div id="roomBar"></div>
+    <canvas id="mini" width="220" height="72" title="Mapa: clic para moverte"></canvas>
+    <div id="helpHint">Arrastra para moverte, rueda para acercar, doble clic para enfocar</div>
+    <div id="offline" hidden>Sin conexión con el servidor de la oficina…</div>
+  </main>
+
+  <aside id="side">
+    <header>
+      <div class="brand">OFICINA DE AGENTES</div>
+      <div class="sub" id="subtitle">Agencia + Askitar</div>
+      <div class="chips">
+        <span class="chip" id="chipSessions">0 sesiones</span>
+        <span class="chip" id="chipWorking">0 trabajando</span>
+        <span class="chip ok" id="chipDone">✓ 0 hoy</span>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button data-tab="team" class="on">Equipo</button>
+      <button data-tab="log">Actividad</button>
+    </nav>
+
+    <section id="tab-team" class="tab on"><ul id="teamList"></ul></section>
+    <section id="tab-log" class="tab"><ul id="logList"></ul></section>
+
+    <section id="chat" hidden>
+      <div class="chat-head">
+        <div><b id="chatName"></b> <span id="chatRole"></span></div>
+        <button id="chatClose" title="Cerrar">×</button>
+      </div>
+      <div id="chatStatus"></div>
+      <div id="chatMsgs"></div>
+      <form id="chatForm">
+        <textarea id="chatInput" rows="2" placeholder="Escríbele al agente…"></textarea>
+        <button type="submit" id="chatSend">Enviar</button>
+      </form>
+      <div class="hint" id="chatHint"></div>
+    </section>
+
+    <footer>
+      <button id="btnDemo">▶ Demo</button>
+      <label class="sw"><input type="checkbox" id="chkSound"> <span>Sonido cuando me necesitan</span></label>
+    </footer>
+  </aside>
+</div>
+<script src="scene.js"></script>
+<script src="office.js"></script>
+</body>
+</html>

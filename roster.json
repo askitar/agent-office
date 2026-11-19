@@ -1,0 +1,280 @@
+{
+  "office": {
+    "name": "OFICINA DE AGENTES",
+    "subtitle": "Una oficina, dos mitades: Agencia y Estudio"
+  },
+  "notes": "kind: boss = sesion principal de Claude de ese departamento; resident = escritorio fijo siempre en la oficina; reserve = agente ya creado que solo aparece cuando se usa (entra por la puerta); temp = pasante que aparece cuando corre un subagente sin escritorio propio. agentType = nombre del archivo en ~/.claude/agents. Los permisos del chat los decide server.js segun el nivel de cada agente (config.json: levels y allow). Departamentos: la sesion se asigna por la carpeta (cwdPatterns); si no coincide va al default. chat.cwd es relativo a la carpeta del servidor; apuntalo a tu proyecto.",
+  "departments": [
+    {
+      "id": "agency",
+      "name": "Agencia de clientes",
+      "boss": "michael",
+      "default": true,
+      "cwdPatterns": []
+    },
+    {
+      "id": "askitar",
+      "name": "Askitar Studio",
+      "boss": "jan",
+      "cwdPatterns": [
+        "video",
+        "askitar",
+        "studio"
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "michael",
+      "name": "Michael",
+      "role": "Jefe de la Agencia (Claude principal)",
+      "kind": "boss",
+      "dept": "agency",
+      "desk": "M",
+      "agentType": null,
+      "chat": {
+        "cwd": "borradores"
+      }
+    },
+    {
+      "id": "jan",
+      "name": "Jan",
+      "role": "Jefa Askitar (Claude principal)",
+      "kind": "boss",
+      "dept": "askitar",
+      "desk": "M",
+      "agentType": null,
+      "chat": {
+        "cwd": "borradores"
+      }
+    },
+    {
+      "id": "angela",
+      "name": "Angela",
+      "role": "Auditora de tickets (solo lectura)",
+      "kind": "resident",
+      "dept": "agency",
+      "desk": "A1",
+      "agentType": "auditor-tickets",
+      "chat": {
+        "cwd": "borradores"
+      }
+    },
+    {
+      "id": "erin",
+      "name": "Erin",
+      "role": "Cliente nuevo (reserva)",
+      "kind": "reserve",
+      "dept": "agency",
+      "desk": "A2",
+      "agentType": "cliente-nuevo",
+      "chat": {
+        "cwd": "borradores"
+      }
+    },
+    {
+      "id": "phyllis",
+      "name": "Phyllis",
+      "role": "Publicador programado (reserva)",
+      "kind": "reserve",
+      "dept": "agency",
+      "desk": "A3",
+      "agentType": "publicador-programado",
+      "chat": {
+        "cwd": "borradores"
+      }
+    },
+    {
+      "id": "toby",
+      "name": "Toby",
+      "role": "Onboarding de cliente (reserva)",
+      "kind": "reserve",
+      "dept": "agency",
+      "desk": "B1",
+      "agentType": "onboarding-cliente",
+      "chat": {
+        "cwd": "borradores"
+      }
+    },
+    {
+      "id": "meredith",
+      "name": "Meredith",
+      "role": "Revisor de calidad (reserva)",
+      "kind": "reserve",
+      "dept": "agency",
+      "desk": "B2",
+      "agentType": "revisor-calidad",
+      "chat": {
+        "cwd": "borradores"
+      }
+    },
+    {
+      "id": "dwight",
+      "name": "Dwight",
+      "role": "Investigador de temas",
+      "kind": "resident",
+      "dept": "askitar",
+      "desk": "A1",
+      "agentType": "investigador-temas",
+      "chat": {
+        "cwd": "borradores"
+      }
+    },
+    {
+      "id": "jim",
+      "name": "Jim",
+      "role": "Guionista",
+      "kind": "resident",
+      "dept": "askitar",
+      "desk": "A2",
+      "agentType": "guionista",
+      "chat": {
+        "cwd": "borradores"
+      }
+    },
+    {
+      "id": "pam",
+      "name": "Pam",
+      "role": "Animadora Remotion",
+      "kind": "resident",
+      "dept": "askitar",
+      "desk": "B1",
+      "agentType": "animador-remotion",
+      "chat": {
+        "cwd": "borradores"
+      }
+    },
+    {
+      "id": "ryan",
+      "name": "Ryan",
+      "role": "Editor Premiere",
+      "kind": "resident",
+      "dept": "askitar",
+      "desk": "B2",
+      "agentType": "editor-premiere",
+      "chat": {
+        "cwd": "borradores"
+      }
+    },
+    {
+      "id": "kelly",
+      "name": "Kelly",
+      "role": "Publicador de redes (reserva)",
+      "kind": "reserve",
+      "dept": "askitar",
+      "desk": "A3",
+      "agentType": "publicador-redes",
+      "chat": {
+        "cwd": "borradores"
+      }
+    },
+    {
+      "id": "andy",
+      "name": "Andy",
+      "role": "Productor de voz (reserva)",
+      "kind": "reserve",
+      "dept": "askitar",
+      "desk": "A4",
+      "agentType": "productor-voz",
+      "chat": {
+        "cwd": "borradores"
+      }
+    },
+    {
+      "id": "stanley",
+      "name": "Stanley",
+      "role": "Revisor de video (reserva)",
+      "kind": "reserve",
+      "dept": "askitar",
+      "desk": "B3",
+      "agentType": "revisor-video",
+      "chat": {
+        "cwd": "borradores"
+      }
+    },
+    {
+      "id": "kevin",
+      "name": "Kevin",
+      "role": "Pasante",
+      "kind": "temp",
+      "dept": "agency"
+    },
+    {
+      "id": "darryl",
+      "name": "Darryl",
+      "role": "Pasante",
+      "kind": "temp",
+      "dept": "agency"
+    },
+    {
+      "id": "gabe",
+      "name": "Gabe",
+      "role": "Pasante",
+      "kind": "temp",
+      "dept": "agency"
+    },
+    {
+      "id": "holly",
+      "name": "Holly",
+      "role": "Pasante",
+      "kind": "temp",
+      "dept": "agency"
+    },
+    {
+      "id": "pete",
+      "name": "Pete",
+      "role": "Pasante",
+      "kind": "temp",
+      "dept": "agency"
+    },
+    {
+      "id": "clark",
+      "name": "Clark",
+      "role": "Pasante",
+      "kind": "temp",
+      "dept": "agency"
+    },
+    {
+      "id": "creed",
+      "name": "Creed",
+      "role": "Pasante",
+      "kind": "temp",
+      "dept": "askitar"
+    },
+    {
+      "id": "nellie",
+      "name": "Nellie",
+      "role": "Pasante",
+      "kind": "temp",
+      "dept": "askitar"
+    },
+    {
+      "id": "roy",
+      "name": "Roy",
+      "role": "Pasante",
+      "kind": "temp",
+      "dept": "askitar"
+    },
+    {
+      "id": "hide",
+      "name": "Hide",
+      "role": "Pasante",
+      "kind": "temp",
+      "dept": "askitar"
+    },
+    {
+      "id": "jo",
+      "name": "Jo",
+      "role": "Pasante",
+      "kind": "temp",
+      "dept": "askitar"
+    },
+    {
+      "id": "wally",
+      "name": "Wally",
+      "role": "Pasante",
+      "kind": "temp",
+      "dept": "askitar"
+    }
+  ]
+}
